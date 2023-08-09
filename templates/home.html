@@ -1,0 +1,27 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html>
+    <html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Welcome to EveAuthCorpServices</title>
+</head>
+<body>
+    <p>Please click below to begin Authorization.</p>
+    <form action="/" method="post">
+        <label for="character_id">Enter Character ID:</label><br>
+        <input type="text" id="character_id" name="character_id" required><br>
+        <label for="corporation_id">Enter Corporation ID:</label><br>
+        <input type="text" id="corporation_id" name="corporation_id" required><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if show_auth_button %}
+    <form action="/authenticate" method="get">
+        <button type="submit" style="border: none; background: none; padding: 0;">
+            <img src="/static/eve-sso-login-white-large.png" alt="Authorization Button">
+        </button>
+    </form>
+    {% endif %}      
+</body>
+</html>

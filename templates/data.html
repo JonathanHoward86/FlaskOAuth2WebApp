@@ -1,0 +1,34 @@
+<!-- data.html -->
+<!DOCTYPE html>
+<html>
+    <html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Data</title>
+</head>
+<body>
+    <h1>Data</h1>
+    <img src="{{ avatar_url }}" alt="Avatar">
+    {% for url, url_data in data.items() %}
+    {% if url_data is mapping %}
+        <h2>{{ url }}</h2>
+        <table>
+            <tr>
+                {% for key in url_data.keys() %}
+                <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for value in url_data.values() %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    {% else %}
+        <h2>{{ url }}</h2>
+        <p>{{ url_data }}</p>
+    {% endif %}
+{% endfor %}
+</body>
+</html>
